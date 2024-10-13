@@ -15,12 +15,13 @@
                 <a class="list-menu-item">
                     <p>List #1</p>
                 </a>
-                <a class="list-menu-item">
-                    <p>List #1</p>
+
+                <a class="list-menu-item" *ngFor="let list of lists">
+                    <p>{{ list.title }}</p>
                 </a>
             </div>
 
-            <button class="button is-primary has-text-white">+ New List</button>
+            <button class="button is-primary has-text-white" routerLink="/new-list">+ New List</button>
         </div>
         <div class="task-list-container has-background-white">
             <h1 class="title has-text-primary">
