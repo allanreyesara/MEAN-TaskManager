@@ -31,16 +31,16 @@ NODE_ENV=development
 cd frontend
 ```
 ```
-npm run dev
+ng serve --open
 ```
 
 # Backend
 
 ```
-cd backend
+cd API
 ```
 ```
-npm start
+nodemon start
 ```
 
 ## Skills used in the project:
