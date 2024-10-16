@@ -9,6 +9,10 @@ git clone allanreyesara/MEAN-TaskManager
 -Build
 
 ```
+cd frontend
+```
+
+```
 ng build
 ```
 
