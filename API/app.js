@@ -8,6 +8,7 @@ import connectMongoDB from "./db/mongoose.js"
 
 import listRoutes from "./routes/lists.route.js"
 import tasksRoute from "./routes/tasks.route.js";
+import authRoute from "./routes/auth.route.js";
 
 
 dotenv.config();
@@ -23,6 +24,7 @@ app.use(cookieParser());
 
 app.use("/api/lists", listRoutes);
 app.use("/api/lists", tasksRoute)
+app.use("/api/auth", authRoute)
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

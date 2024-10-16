@@ -34,8 +34,8 @@ export const createList = async (req, res) => {
 
 export const updateList = async  (req, res) => {
     try{
-        const listId = req.params.id
-        let list = await List.findById( listId )
+        const _listId = req.params.id
+        let list = await List.findById( _listId )
         const { title } = req.body
         list.title = title || list.title
         await list.save()

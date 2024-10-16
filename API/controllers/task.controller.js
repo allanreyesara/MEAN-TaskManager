@@ -7,7 +7,7 @@ export const getTasks = async (req, res) => {
             _listId: req.params.listId
         })
 
-        res.status(500).json(tasks)
+        res.status(201).json(tasks)
     }catch (err) {
         res.status(500).json({ error: "Internal server error "})
         console.log(err)
@@ -35,7 +35,7 @@ export const deleteTask = async (req, res) => {
             _id: req.params.taskId
         })
 
-        res.status(200).json({ message: "Task deleted" })
+        res.status(201).json({ message: "Task deleted" })
     }catch (err) {
         res.status(500).json({ error: "Internal server error "})
         console.log(err)
@@ -44,13 +44,17 @@ export const deleteTask = async (req, res) => {
 
 export const updateTask = async (req, res) => {
     try {
+        console.log(`requested update for ${req.params.taskId}`)
         const taskId = req.params.taskId
         let task = await Task.findById( taskId )
-        const {title} = req.body
+        const {title, completed} = req.body
         task.title = title || task.title
+        if(completed!==undefined) {
+            task.completed = completed
+        }
         await task.save();
 
-        res.status(200).json({ message: `Task updated` })
+        res.status(201).json({ message: `Task updated` })
     } catch (err) {
         res.status(500).json({ error: "Internal server error "})
         console.log(err)

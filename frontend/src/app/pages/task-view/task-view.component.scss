@@ -19,13 +19,14 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    width: 258px;   
+    width: 258px;
     padding: 42px;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
 }
 
 .task-list-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -77,20 +78,30 @@
     &:not(.complete){
         cursor: pointer;
         transition: box-shadow 0.2s ease, transform 0.2s ease;
-    
+
         &:active {
             transform: scale(0.95);
         }
-    
+
         &:hover {
             box-shadow: 0 0 0 5px #eee;
         }
-    
+
     }
-    
-    &.complete {
+
+    &.completed {
         text-decoration: line-through;
         opacity: 80%;
     }
+}
+
+.circle-add-button {
+  position: absolute;
+  bottom: 35px;
+  right: 35px;
+  height: 50px;
+  width: 50px;
+  background: $primary;
+  border-radius: 50%;
 }
 
